@@ -6,8 +6,10 @@
  * Time: 12:59 AM
  */
 
-class Item {
+abstract class Item {
     private $id;
+    private $title;
+    private $seller;
 
     /**
      * Item constructor.
@@ -33,4 +35,37 @@ class Item {
     {
         $this->id = $id;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getTitle()
+    {
+        return $this->title;
+    }
+
+    /**
+     * @param mixed $title
+     */
+    public function setTitle($title)
+    {
+        $this->title = $title;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSeller()
+    {
+        return $this->seller;
+    }
+
+    /**
+     * @param mixed $seller
+     */
+    public function setSeller($seller)
+    {
+        $this->seller = $seller;
+    }
+
 }
