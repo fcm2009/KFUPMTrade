@@ -10,6 +10,7 @@ abstract class Item {
     private $id;
     private $title;
     private $seller;
+    private $price;
 
     /**
      * Item constructor.
@@ -66,6 +67,22 @@ abstract class Item {
     public function setSeller($seller)
     {
         $this->seller = $seller;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPrice()
+    {
+        return $this->price;
+    }
+
+    /**
+     * @param mixed $price
+     */
+    public function setPrice($price)
+    {
+        $this->price = $price;
     }
 
 }
