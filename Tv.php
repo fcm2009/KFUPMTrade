@@ -24,4 +24,11 @@ class Tv extends Item {
     {
         $this->tvId = $tvId;
     }
+
+    function jsonSerialize()
+    {
+        $json = parent::jsonSerialize();
+        $json["tvId"] = $this->tvId;
+        return $json;
+    }
 }

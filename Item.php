@@ -6,7 +6,7 @@
  * Time: 12:59 AM
  */
 
-abstract class Item {
+abstract class Item implements JsonSerializable {
     private $id;
     private $title;
     private $seller;
@@ -15,10 +15,16 @@ abstract class Item {
     /**
      * Item constructor.
      * @param $id
+     * @param $title
+     * @param $seller
+     * @param $price
      */
-    public function __construct($id)
+    public function __construct($id, $title, $seller, $price)
     {
         $this->id = $id;
+        $this->title = $title;
+        $this->seller = $seller;
+        $this->price = $price;
     }
 
     /**
@@ -83,6 +89,23 @@ abstract class Item {
     public function setPrice($price)
     {
         $this->price = $price;
+    }
+
+    /**
+     * (PHP 5 &gt;= 5.4.0)<br/>
+     * Specify data which should be serialized to JSON
+     * @link http://php.net/manual/en/jsonserializable.jsonserialize.php
+     * @return mixed data which can be serialized by <b>json_encode</b>,
+     * which is a value of any type other than a resource.
+     */
+    function jsonSerialize()
+    {
+        return [
+            "id" => $this->id,
+            "title" => $this->title,
+            "seller" => $this->seller,
+            "price" => $this->price,
+        ];
     }
 
 }

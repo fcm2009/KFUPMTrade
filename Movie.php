@@ -24,4 +24,13 @@ class Movie extends Item {
     {
         $this->movieId = $movieId;
     }
+
+    function jsonSerialize()
+    {
+        $json = parent::jsonSerialize();
+        $json["movieId"] = $this->movieId;
+        return $json;
+    }
+
+
 }

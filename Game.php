@@ -24,4 +24,11 @@ class Game {
     {
         $this->gameId = $gameId;
     }
+
+    function jsonSerialize()
+    {
+        $json = parent::jsonSerialize();
+        $json["gameId"] = $this->gameId;
+        return $json;
+    }
 }

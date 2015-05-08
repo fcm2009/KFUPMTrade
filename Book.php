@@ -24,4 +24,12 @@ class Book extends Item {
     {
         $this->isbn = $isbn;
     }
+
+    function jsonSerialize()
+    {
+        $json = parent::jsonSerialize();
+        $json["isbn"] = $this->isbn;
+        return $json;
+    }
+
 }
