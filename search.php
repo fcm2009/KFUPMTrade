@@ -14,7 +14,7 @@ $host = "localhost";
 $port = "3306";
 $dbname = "KFUPMTrade";
 $username = "root";
-$password = "hg,i,l,vh";
+$password = "root";
 
 if($category == "All") {
     $sql = "SELECT Item.id, Item.title, Item.seller, Item.price, Item.type, Book.isbn, Game.gameId, Movie.movieId, Tv.tvId
