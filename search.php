@@ -8,8 +8,8 @@
 
 include_once "ItemFactory.php";
 
-$keyword = "";//$_GET["keyword"];
-$category = "All";//$_GET["category"];
+$keyword = "aaaa";//$_GET["keyword"];
+$category = "Home";//$_GET["category"];
 $host = "localhost";
 $port = "3306";
 $dbname = "KFUPMTrade";
@@ -17,21 +17,18 @@ $username = "root";
 $password = "root";
 
 if($category == "All") {
-    $sql = "SELECT Item.id, Item.title, Item.seller, Item.price, Item.type, Item.description, Item.image, Book.isbn,
-            Game.gameId, Movie.movieId, Tv.tvId
-            FROM Item LEFT JOIN Book ON Item.id = Book.id
-            LEFT JOIN Electronic ON Item.id = Electronic.id
-            LEFT JOIN Game ON Item.id = Game.id
-            LEFT JOIN Home ON Item.id = Home.id
-            LEFT JOIN Movie ON Item.id = Movie.id
-            LEFT JOIN Other ON Item.id = Other.id
-            LEFT JOIN Tv ON Item.id = Tv.id
-            WHERE title LIKE :keyword";
+    $sql = "SELECT Item.id, Item.title, Item.seller, Item.price, Item.type, Item.description, Item.image,
+            Item.date, Item.isbn, Item.gameId, Item.movieId, Item.tvId
+            FROM Item
+            WHERE title LIKE :keyword
+            ORDER BY Item.date ASC";
 }
 else {
-    $sql = "SELECT Item.id, Item.title, Item.seller, Item.price, Item.type, Item.description, Item.image
-            FROM Item NATURAL JOIN $category
-            WHERE title like :keyword";
+    $sql = "SELECT Item.id, Item.title, Item.seller, Item.price, Item.type, Item.description, Item.image,
+            Item.date, Item.isbn, Item.gameId, Item.movieId, Item.tvId
+            FROM Item
+            WHERE Item.type = '$category' AND Item.title LIKE :keyword
+            ORDER BY Item.date ASC";
 }
 
 try {
@@ -43,10 +40,16 @@ try {
     die("Error:\n" . $e->getMessage());
 }
 
-foreach($result as $object) {
-    $objects[] = ItemFactory::createItem($object);
+if(count($result) != 0) {
+    foreach ($result as $object) {
+        $objects[] = ItemFactory::createItem($object);
+    }
+    return $objects;
 }
-return $objects;
+else {
+    return $objects = null;
+}
+
 
 
 

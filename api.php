@@ -8,5 +8,15 @@
 
 if(true) {
     include_once "search.php";
-    json_encode($objects);
+    if($objects != null) {
+        print_r(json_encode($objects));
+    }
+    else {
+         print(null);
+    }
+}
+
+elseif(false) {
+    $object = $_GET["add"];
+    include_once "api.php";
 }
