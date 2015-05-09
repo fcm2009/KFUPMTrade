@@ -11,6 +11,8 @@ class Electronic extends Item {
     public static function createItem($itemData)
     {
         $electronic = new Electronic($itemData["id"], $itemData["title"], $itemData["seller"], $itemData["price"]);
+        $electronic->setDescription($itemData["description"]);
+        $electronic->setImage($itemData["image"]);
         return $electronic;
     }
 }

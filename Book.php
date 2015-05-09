@@ -15,6 +15,8 @@ class Book extends Item {
     {
         $book = new Book($itemData["id"], $itemData["title"], $itemData["seller"], $itemData["price"]);
         $book->setIsbn($itemData["isbn"]);
+        $book->setDescription($itemData["description"]);
+        $book->setImage($itemData["image"]);
         return $book;
     }
 

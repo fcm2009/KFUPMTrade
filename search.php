@@ -17,7 +17,8 @@ $username = "root";
 $password = "root";
 
 if($category == "All") {
-    $sql = "SELECT Item.id, Item.title, Item.seller, Item.price, Item.type, Book.isbn, Game.gameId, Movie.movieId, Tv.tvId
+    $sql = "SELECT Item.id, Item.title, Item.seller, Item.price, Item.type, Item.description, Item.image, Book.isbn,
+            Game.gameId, Movie.movieId, Tv.tvId
             FROM Item LEFT JOIN Book ON Item.id = Book.id
             LEFT JOIN Electronic ON Item.id = Electronic.id
             LEFT JOIN Game ON Item.id = Game.id
@@ -28,7 +29,8 @@ if($category == "All") {
             WHERE title LIKE :keyword";
 }
 else {
-    $sql = "SELECT id, title, seller, price, type FROM Item NATURAL JOIN $category
+    $sql = "SELECT Item.id, Item.title, Item.seller, Item.price, Item.type, Item.description, Item.image
+            FROM Item NATURAL JOIN $category
             WHERE title like :keyword";
 }
 

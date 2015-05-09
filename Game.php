@@ -13,6 +13,8 @@ class Game extends Item{
     {
         $game = new Game($itemData["id"], $itemData["title"], $itemData["seller"], $itemData["price"]);
         $game->setGameId($itemData["gameId"]);
+        $game->setDescription($itemData["description"]);
+        $game->setImage($itemData["image"]);
         return $game;
     }
 

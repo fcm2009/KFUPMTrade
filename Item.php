@@ -13,6 +13,8 @@ abstract class Item implements JsonSerializable, Factory {
     private $title;
     private $seller;
     private $price;
+    private $description;
+    private $image;
 
     /**
      * Item constructor.
@@ -94,6 +96,38 @@ abstract class Item implements JsonSerializable, Factory {
     }
 
     /**
+     * @return mixed
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * @param mixed $description
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getImage()
+    {
+        return $this->image;
+    }
+
+    /**
+     * @param mixed $image
+     */
+    public function setImage($image)
+    {
+        $this->image = $image;
+    }
+
+    /**
      * (PHP 5 &gt;= 5.4.0)<br/>
      * Specify data which should be serialized to JSON
      * @link http://php.net/manual/en/jsonserializable.jsonserialize.php
@@ -107,6 +141,8 @@ abstract class Item implements JsonSerializable, Factory {
             "title" => $this->title,
             "seller" => $this->seller,
             "price" => $this->price,
+            "description" => $this->description,
+            "image" => $this->image
         ];
     }
 

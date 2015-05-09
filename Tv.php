@@ -13,6 +13,8 @@ class Tv extends Item {
     {
         $tv = new Tv($itemData["id"], $itemData["title"], $itemData["seller"], $itemData["price"]);
         $tv->setTvId($itemData["tvId"]);
+        $tv->setDescription($itemData["description"]);
+        $tv->setImage($itemData["image"]);
         return $tv;
     }
 

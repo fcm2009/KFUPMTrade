@@ -6,11 +6,13 @@
  * Time: 12:53 AM
  */
 
-class Other {
+class Other extends Item {
 
     public static function createItem($itemData)
     {
         $other = new Other($itemData["id"], $itemData["title"], $itemData["seller"], $itemData["price"]);
+        $other->setDescription($itemData["description"]);
+        $other->setImage($itemData["image"]);
         return $other;
     }
 }

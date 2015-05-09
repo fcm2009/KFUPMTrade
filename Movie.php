@@ -13,6 +13,8 @@ class Movie extends Item {
     {
         $movie = new Movie($itemData["id"], $itemData["title"], $itemData["seller"], $itemData["price"]);
         $movie->setMovieId($itemData["movieId"]);
+        $movie->setDescription($itemData["description"]);
+        $movie->setImage($itemData["image"]);
         return $movie;
     }
 

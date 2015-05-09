@@ -6,11 +6,13 @@
  * Time: 12:52 AM
  */
 
-class Home {
+class Home extends Item {
 
     public static function createItem($itemData)
     {
         $home = new Home($itemData["id"], $itemData["title"], $itemData["seller"], $itemData["price"]);
+        $home->setDescription($itemData["description"]);
+        $home->setImage($itemData["image"]);
         return $home;
     }
 }
