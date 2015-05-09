@@ -5,6 +5,8 @@
  * Date: 5/8/15
  * Time: 3:51 PM
  */
-if($_GET["method"] == "search") {
-    //"Search.php";
+
+if(true) {
+    include_once "search.php";
+    json_encode($objects);
 }

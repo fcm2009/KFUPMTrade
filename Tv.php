@@ -9,6 +9,13 @@
 class Tv extends Item {
     private $tvId;
 
+    public static function createItem($itemData)
+    {
+        $tv = new Tv($itemData["id"], $itemData["title"], $itemData["seller"], $itemData["price"]);
+        $tv->setTvId($itemData["tvId"]);
+        return $tv;
+    }
+
     /**
      * @return mixed
      */

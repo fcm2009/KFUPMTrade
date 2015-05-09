@@ -8,4 +8,9 @@
 
 class Electronic extends Item {
 
+    public static function createItem($itemData)
+    {
+        $electronic = new Electronic($itemData["id"], $itemData["title"], $itemData["seller"], $itemData["price"]);
+        return $electronic;
+    }
 }

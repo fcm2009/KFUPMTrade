@@ -8,4 +8,9 @@
 
 class Home {
 
+    public static function createItem($itemData)
+    {
+        $home = new Home($itemData["id"], $itemData["title"], $itemData["seller"], $itemData["price"]);
+        return $home;
+    }
 }

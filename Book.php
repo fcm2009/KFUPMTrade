@@ -6,8 +6,17 @@
  * Time: 10:05 PM
  */
 
+include_once "Item.php";
+
 class Book extends Item {
     private $isbn;
+
+    public static function createItem($itemData)
+    {
+        $book = new Book($itemData["id"], $itemData["title"], $itemData["seller"], $itemData["price"]);
+        $book->setIsbn($itemData["isbn"]);
+        return $book;
+    }
 
     /**
      * @return mixed

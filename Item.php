@@ -6,7 +6,9 @@
  * Time: 12:59 AM
  */
 
-abstract class Item implements JsonSerializable {
+include_once "Factory.php";
+
+abstract class Item implements JsonSerializable, Factory {
     private $id;
     private $title;
     private $seller;

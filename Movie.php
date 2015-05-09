@@ -9,6 +9,13 @@
 class Movie extends Item {
     private $movieId;
 
+    public static function createItem($itemData)
+    {
+        $movie = new Movie($itemData["id"], $itemData["title"], $itemData["seller"], $itemData["price"]);
+        $movie->setMovieId($itemData["movieId"]);
+        return $movie;
+    }
+
     /**
      * @return mixed
      */
@@ -31,6 +38,4 @@ class Movie extends Item {
         $json["movieId"] = $this->movieId;
         return $json;
     }
-
-
 }

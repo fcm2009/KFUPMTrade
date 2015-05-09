@@ -6,8 +6,15 @@
  * Time: 12:22 AM
  */
 
-class Game {
+class Game extends Item{
     private $gameId;
+
+    public static function createItem($itemData)
+    {
+        $game = new Game($itemData["id"], $itemData["title"], $itemData["seller"], $itemData["price"]);
+        $game->setGameId($itemData["gameId"]);
+        return $game;
+    }
 
     /**
      * @return mixed

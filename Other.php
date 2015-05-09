@@ -8,4 +8,9 @@
 
 class Other {
 
+    public static function createItem($itemData)
+    {
+        $other = new Other($itemData["id"], $itemData["title"], $itemData["seller"], $itemData["price"]);
+        return $other;
+    }
 }
