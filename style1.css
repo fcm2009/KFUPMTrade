@@ -1,0 +1,110 @@
+
+
+* {
+	padding: 0em;
+	margin: 0em;
+}
+
+html {
+	width: 100%;
+}
+
+body {
+	width: 100%;
+	font-family: tahoma,helvetica,sans-serif;
+	font-size: 15pt;
+	color: #999;
+	min-width: 850px;
+	background-color: #222;
+}
+
+
+/* Common elements */
+
+a {
+	text-decoration: none;
+	border: none;
+	color: #FFF;
+}
+
+a:hover {
+	text-decoration: underline;
+	color: #aaaaaa;
+}
+
+.sidebar1{
+	float: left;
+	padding-right:20px;
+	
+}
+nav ul{
+	list-style: none;
+	border-top: 1px solid #000;
+	margin-bottom: 15px;
+	background-color: #454545;
+}
+nav li{
+	border-bottom: 1px solid #000;
+}
+nav a{
+	padding: 5px 5px 5px 15px;
+	display:block;
+	color: #FFF;
+}
+li a:hover{
+	color:#FFF;
+	background-color: #202020;
+}
+#category{
+	background-color: #454545;
+	padding-right:25px;
+	color: #ccc;
+}
+
+.searchBar{
+	background-color: #000;
+}
+
+.searchBar label{
+	color: #ccc;
+}
+
+#search form{
+	display: inline;
+}
+
+#account{
+	float: right;
+	padding-right: 10px;
+}
+
+
+footer {
+	padding: 10px 0;
+	position: relative;
+	clear: both;
+}
+p{
+	text-align: center;
+	font-family: courier;
+	
+}
+
+.content{
+	text-align: center;
+	margin-top: 30pt;
+	background-color: #303030;
+}
+.content form{
+	display: inline-block;
+}
+.content form label{
+	float: left;
+}
+.content form input{
+	float:right;
+}
+
+#button{
+	padding: 3px;
+}
