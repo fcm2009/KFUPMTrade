@@ -8,7 +8,7 @@
 
 include_once "ItemFactory.php";
 
-$keyword = "aaaa";//$_GET["keyword"];
+$keyword = "";//$_GET["keyword"];
 $category = "Home";//$_GET["category"];
 $host = "localhost";
 $port = "3306";
@@ -44,14 +44,8 @@ if(count($result) != 0) {
     foreach ($result as $object) {
         $objects[] = ItemFactory::createItem($object);
     }
-    return $objects;
+    echo json_encode($objects);
 }
 else {
-    return $objects = null;
+    echo json_encode(null);;
 }
-
-
-
-
-
-

@@ -18,14 +18,12 @@ abstract class Item implements JsonSerializable, Factory {
 
     /**
      * Item constructor.
-     * @param $id
      * @param $title
      * @param $seller
      * @param $price
      */
-    public function __construct($id, $title, $seller, $price)
+    public function __construct($title, $seller, $price)
     {
-        $this->id = $id;
         $this->title = $title;
         $this->seller = $seller;
         $this->price = $price;
@@ -134,10 +132,20 @@ abstract class Item implements JsonSerializable, Factory {
      * @return mixed data which can be serialized by <b>json_encode</b>,
      * which is a value of any type other than a resource.
      */
-    function jsonSerialize()
+    public function jsonSerialize()
     {
         return [
             "id" => $this->id,
+            "title" => $this->title,
+            "seller" => $this->seller,
+            "price" => $this->price,
+            "description" => $this->description,
+            "image" => $this->image
+        ];
+    }
+
+    public function toArray() {
+        return [
             "title" => $this->title,
             "seller" => $this->seller,
             "price" => $this->price,

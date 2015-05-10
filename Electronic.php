@@ -6,6 +6,8 @@
  * Time: 12:14 AM
  */
 
+include_once "Item.php";
+
 class Electronic extends Item {
 
     public static function createItem($itemData)
