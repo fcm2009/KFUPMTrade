@@ -12,7 +12,7 @@ function search() {
         asyncRequest.setRequestHeader("Content-type","application/x-www-form-urlencoded");
         asyncRequest.send("keyword=" + keyword + "& category=" + selectedCateg);
     }
-    catch(exception){
+    catch(exception) {
         alert("Request Failed");
     }
 }
