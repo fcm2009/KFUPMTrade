@@ -4,7 +4,7 @@
 
 var asyncRequest;
 
-function search() {
+function search(keyword, category) {
     try {
         var asyncRequest = new XMLHttpRequest();
         asyncRequest.addEventListener("readystatechange", showContent, false);
@@ -15,4 +15,11 @@ function search() {
     catch(exception) {
         alert("Request Failed");
     }
+}
+
+function registerListener(){
+    document.getElementById("searchButton").addEventListener("click", prepare(), false);
+    document.getElementById("categoryList").addEventListener("click", prepare(), false);
+
+
 }
