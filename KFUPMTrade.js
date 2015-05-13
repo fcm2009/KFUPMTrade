@@ -20,6 +20,8 @@ function search(keyword, category, id, start, whatToDo) {
 function init() {
     document.getElementById("searchButton").addEventListener("click", prepare, false);
 
+    document.getElementById("addButton").addEventListener("click", prepare, false);
+
     var categories = document.getElementById("category").children;
     for(var i = 0; i < categories.length; i++) {
         a = categories[i].firstChild;
@@ -53,6 +55,10 @@ function prepare(event) {
 
         search(keyword, category, "", 0, previewContent);
     }
+
+    else if(event.target.getAttribute("id") == "addButton"){
+
+    }
     else if(event.target.parentNode.parentNode.getAttribute("id") == "category") {
         var category = event.target.textContent;
 
@@ -77,18 +83,21 @@ function buildPreview(item) {
     itemDiv.setAttribute("id", item.id);
     itemDiv.setAttribute("class", "preview");
 
-    var itemTitle = document.createElement("label");
-    itemTitle.textContent = item.title;
-
-    var itemPrice = document.createElement("label");
-    itemPrice.textContent = item.price;
-
     var itemImage = document.createElement("img");
     itemImage.setAttribute("src", item.image);
 
+    var itemTitle = document.createElement("span");
+    itemTitle.setAttribute("id", "title");
+    itemTitle.textContent = item.title;
+
+    var itemPrice = document.createElement("span");
+    itemPrice.setAttribute("id", "price");
+    itemPrice.textContent = item.price;
+
+
+    itemDiv.appendChild(itemImage);
     itemDiv.appendChild(itemTitle);
     itemDiv.appendChild(itemPrice);
-    itemDiv.appendChild(itemImage);
 
     return itemDiv;
 }
