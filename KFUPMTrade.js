@@ -128,11 +128,11 @@ function buildItem(item) {
     itemDate.textContent = item.data;
 
     itemDiv.appendChild(itemTitle);
+    itemDiv.appendChild(itemImage);
     itemDiv.appendChild(itemSeller);
     itemDiv.appendChild(itemPrice);
     itemDiv.appendChild(itemType);
     itemDiv.appendChild(itemDescription);
-    itemDiv.appendChild(itemImage);
 
     return itemDiv;
 }
