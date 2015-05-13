@@ -4,10 +4,10 @@
 
 var asyncRequest;
 
-function search(keyword, category, id, start) {
+function search(keyword, category, id, start, whatToDo) {
     try {
         asyncRequest = new XMLHttpRequest();
-        asyncRequest.addEventListener("readystatechange", showContent, false);
+        asyncRequest.addEventListener("readystatechange", whatToDo, false);
         asyncRequest.open("POST", "search.php", true);
         asyncRequest.setRequestHeader("Content-type","application/x-www-form-urlencoded");
         asyncRequest.send("keyword=" + keyword + "&category=" + category + "&id=" + id + "&start=0");
@@ -17,7 +17,7 @@ function search(keyword, category, id, start) {
     }
 }
 
-function registerListener() {
+function init() {
     document.getElementById("searchButton").addEventListener("click", prepare, false);
 
     var categories = document.getElementById("category").children;
@@ -32,13 +32,14 @@ function registerListener() {
     }
 }
 
-function showContent(event) {
+function previewContent(event) {
     if(asyncRequest.readyState == 4 && asyncRequest.status == 200) {
         var result = JSON.parse(asyncRequest.responseText);
         for(var i = 0; i < result.length; i++) {
-            document.getElementById("content").appendChild(buildItem(result[i]));
+            var item = buildPreview(result[i]);
+            item.addEventListener("click", prepare, false);
+            document.getElementById("content").appendChild(item);
         }
-        registerListener();
     }
 }
 
@@ -50,24 +51,53 @@ function prepare(event) {
 
         document.getElementById("content").innerHTML = "";
 
-        search(keyword, category, null, 0);
+        search(keyword, category, "", 0, previewContent);
     }
     else if(event.target.parentNode.parentNode.getAttribute("id") == "category") {
         var category = event.target.textContent;
 
         document.getElementById("content").innerHTML = "";
 
-        search(null, category, null, 0);
+        search("", category, "", 0, previewContent);
     }
-    else if(event.target.getAttribute("class") == "item" || event.target.parentNode.getAttribute("class") == "item" ) {
-        $(".item").fadeOut(600);
+    else if(event.target.getAttribute("class") == "preview" || event.target.parentNode.getAttribute("class") == "preview" ) {
+        document.getElementById("content").innerHTML = "";
         if(event.target.getAttribute("class") == "item")
-            search(null, null, event.target.getAttribute("id"), 0);
+            search("", "", event.target.getAttribute("id"), 0, showItem());
         else
-            search(null, null, event.target.parentNode.getAttribute("id"), 0);
+            search("", "", event.target.parentNode.getAttribute("id"), 0, showItem);
     }
     else {
         alert("error");
+    }
+}
+
+function buildPreview(item) {
+    var itemDiv = document.createElement("div");
+    itemDiv.setAttribute("id", item.id);
+    itemDiv.setAttribute("class", "preview");
+
+    var itemTitle = document.createElement("label");
+    itemTitle.textContent = item.title;
+
+    var itemPrice = document.createElement("label");
+    itemPrice.textContent = item.price;
+
+    var itemImage = document.createElement("img");
+    itemImage.setAttribute("src", item.image);
+
+    itemDiv.appendChild(itemTitle);
+    itemDiv.appendChild(itemPrice);
+    itemDiv.appendChild(itemImage);
+
+    return itemDiv;
+}
+
+function showItem(event) {
+    if (asyncRequest.readyState == 4 && asyncRequest.status == 200) {
+        var result = JSON.parse(asyncRequest.responseText);
+        var item = result[0];
+        document.getElementById("content").appendChild(buildItem(item));
     }
 }
 
@@ -76,20 +106,36 @@ function buildItem(item) {
     itemDiv.setAttribute("id", item.id);
     itemDiv.setAttribute("class", "item");
 
-    var itemImage = document.createElement("img");
-    itemImage.setAttribute("src", item.image);
-
-    var itemTitle = document.createElement("label");
+    var itemTitle = document.createElement("h1");
     itemTitle.textContent = item.title;
+
+    var itemSeller = document.createElement("label");
+    itemSeller.textContent = item.seller;
 
     var itemPrice = document.createElement("label");
     itemPrice.textContent = item.price;
 
-    itemDiv.appendChild(itemImage);
+    var itemType = document.createElement("label");
+    itemType.textContent = item.type;
+
+    var itemDescription = document.createElement("p");
+    itemDescription.textContent = item.description;
+
+    var itemImage = document.createElement("img");
+    itemImage.setAttribute("src", item.image);
+
+    var itemDate = document.createElement("label");
+    itemDate.textContent = item.data;
+
     itemDiv.appendChild(itemTitle);
+    itemDiv.appendChild(itemSeller);
     itemDiv.appendChild(itemPrice);
+    itemDiv.appendChild(itemType);
+    itemDiv.appendChild(itemDescription);
+    itemDiv.appendChild(itemImage);
 
     return itemDiv;
 }
 
-window.addEventListener("load", registerListener, false);
+
+window.addEventListener("load", init, false);

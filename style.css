@@ -93,6 +93,7 @@ p{
 .content{
 	margin-top: 30pt;
 	background-color: #303030;
+    display: inline;
 }
 .content form{
 	display: inline-block;
@@ -109,10 +110,8 @@ p{
 }
 
 .item {
-    display: block;
     align-content: center;
     align-self: auto;
-
     background-color: #222;
     float: left;
     padding: 1em;

@@ -23,12 +23,12 @@ if($category == "All") {
     $sql = "SELECT Item.id, Item.title, Item.seller, Item.price, Item.type, Item.description, Item.image,
             Item.date, Item.isbn, Item.gameId, Item.movieId, Item.tvId
             FROM Item
-            WHERE title LIKE :keyword
+            WHERE title LIKE '%$keyword%'
             ORDER BY Item.date ASC
             LIMIT $start, $limit";
 }
 
-elseif($id != null) {
+elseif($id != "") {
     $sql = "SELECT Item.id, Item.title, Item.seller, Item.price, Item.type, Item.description, Item.image,
             Item.date, Item.isbn, Item.gameId, Item.movieId, Item.tvId
             FROM Item
@@ -39,7 +39,7 @@ else {
     $sql = "SELECT Item.id, Item.title, Item.seller, Item.price, Item.type, Item.description, Item.image,
             Item.date, Item.isbn, Item.gameId, Item.movieId, Item.tvId
             FROM Item
-            WHERE Item.type = '$category' AND Item.title LIKE :keyword
+            WHERE Item.type = '$category' AND Item.title LIKE '%$keyword%'
             ORDER BY Item.date ASC
             LIMIT $start, $limit";
 }
@@ -47,7 +47,7 @@ else {
 try {
     $db = new PDO("mysql:host=$host;port=$port;dbname=$dbname", $username, $password);
     $query = $db->prepare($sql);
-    $query->execute(array("keyword" => "%$keyword%"));
+    $query->execute();
     $result = $query->fetchall(PDO::FETCH_ASSOC);
 } catch (PDOException $e) {
     die("Error:\n" . $e->getMessage());
