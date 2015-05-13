@@ -15,19 +15,30 @@ abstract class Item implements JsonSerializable, Factory {
     private $price;
     private $description;
     private $image;
+    private $date;
 
     /**
      * Item constructor.
+     * @param $id
      * @param $title
      * @param $seller
      * @param $price
+     * @param $description
+     * @param $image
+     * @param $date
      */
-    public function __construct($title, $seller, $price)
+
+    public function __construct($id, $title, $seller, $price, $description, $image, $date)
     {
+        $this->id = $id;
         $this->title = $title;
         $this->seller = $seller;
         $this->price = $price;
+        $this->description = $description;
+        $this->image = $image;
+        $this->date = $date;
     }
+
 
     /**
      * @return mixed
@@ -126,6 +137,22 @@ abstract class Item implements JsonSerializable, Factory {
     }
 
     /**
+     * @return mixed
+     */
+    public function getDate()
+    {
+        return $this->date;
+    }
+
+    /**
+     * @param mixed $date
+     */
+    public function setDate($date)
+    {
+        $this->date = $date;
+    }
+
+    /**
      * (PHP 5 &gt;= 5.4.0)<br/>
      * Specify data which should be serialized to JSON
      * @link http://php.net/manual/en/jsonserializable.jsonserialize.php
@@ -139,19 +166,14 @@ abstract class Item implements JsonSerializable, Factory {
             "title" => $this->title,
             "seller" => $this->seller,
             "price" => $this->price,
+            "type" => get_class($this),
             "description" => $this->description,
-            "image" => $this->image
+            "image" => $this->image,
+            "date" => $this->date
         ];
     }
 
     public function toArray() {
-        return [
-            "title" => $this->title,
-            "seller" => $this->seller,
-            "price" => $this->price,
-            "description" => $this->description,
-            "image" => $this->image
-        ];
+        return $this->jsonSerialize();
     }
-
 }

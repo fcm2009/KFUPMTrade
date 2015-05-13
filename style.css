@@ -27,12 +27,12 @@ a {
 	color: #FFF;
 }
 
-a:hover {
+a:hover{
 	text-decoration: underline;
 	color: #aaaaaa;
 }
 
-.sidebar1{
+.sidebar{
 	float: left;
 	padding-right:20px;
 	
@@ -63,6 +63,7 @@ li a:hover{
 
 .searchBar{
 	background-color: #000;
+    overflow: hidden;
 }
 
 .searchBar label{
@@ -87,11 +88,9 @@ footer {
 p{
 	text-align: center;
 	font-family: courier;
-	
 }
 
 .content{
-	text-align: center;
 	margin-top: 30pt;
 	background-color: #303030;
 }
@@ -107,4 +106,26 @@ p{
 
 #button{
 	padding: 3px;
+}
+
+.item {
+    display: block;
+    align-content: center;
+    align-self: auto;
+
+    background-color: #222;
+    float: left;
+    padding: 1em;
+}
+
+.item img, label {
+    display: block;
+    overflow: inherit;
+}
+
+.item img {
+    max-width: 10em;
+    width: auto;
+    height: auto;
+    overflow: inherit;
 }

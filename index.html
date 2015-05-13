@@ -3,60 +3,61 @@
 <head>
     <meta charset="utf-8">
     <title>Homepage</title>
-    <link rel="stylesheet" type="text/css" href="style1.css">
-    <script src="getContent.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="KFUPMTrade.js"></script>
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js" type="application/javascript"></script>
 </head>
 
 <body>
-<div class="container">
-    <header>
-    <a href="index.html"><img src="" alt="Insert Logo Here"></a>
-    </header>
-<div class="sidebar1">
-<div id="category">Category</div>
-  <nav>
-    <ul>
-      <li><a href="#">Book</a></li>
-      <li><a href="#">Electronic</a></li>
-      <li><a href="#">Game</a></li>
-      <li><a href="#">Home</a></li>
-      <li><a href="#">Movie</a></li>
-      <li><a href="#">TV</a></li>
-      <li><a href="#">Other</a></li>
-    </ul>
-    </nav>
-  <!-- end .sidebar1 --></div>
-  <div class="searchBar">
-  <span id="search">
-  <form>
-  <label>search:</label>
-  <input type="text" id="searchInput">
-  <select id="categorySelector">
-  <option>All Categories</option>
-  <option>Book</option>
-  <option>Electronic</option>
-  <option>Game</option>
-  <option>Home</option>
-  <option>Movie</option>
-  <option>TV</option>
-  <option>Other</option>
-  </select>
-  <input id="searchButton" type="button" value="search">
-  </form>
-  </span>
-  <span id="account">
-  <a href="create account.html">Create account</a>
-  <a href="Login.html">Login</a>
-  </span>
-  </div>
-  <div class="content"></div>
-<footer>
-<p>developed by</p>
-<p><strong>Mohammed Alshehry</strong></p>
-<p><strong>Awad Aljuaid</strong></p>
-<p>Contact us:
-<a href="mailto: mail@example.com">send email</a></p>
-</footer>
-  <!-- end .container --></div>
+    <div class="container">
+        <header>
+            <a href="index.html"><img src="" alt="Insert Logo Here"></a>
+        </header>
+        <div class="sidebar">
+            <div>Category</div>
+            <nav>
+                <ul id="category">
+                    <li><a id = "a">Book</a></li>
+                    <li><a>Electronic</a></li>
+                    <li><a>Game</a></li>
+                    <li><a>Home</a></li>
+                    <li><a>Movie</a></li>
+                    <li><a>TV</a></li>
+                    <li><a>Other</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="searchBar">
+            <span id="search">
+                <form>
+                    <label>search:</label>
+                    <input type="text" id="searchInput">
+                    <select id="categoryList">
+                    <option>All</option>
+                    <option>Book</option>
+                    <option>Electronic</option>
+                    <option>Game</option>
+                    <option>Home</option>
+                    <option>Movie</option>
+                    <option>TV</option>
+                    <option>Other</option>
+                    </select>
+                    <input id="searchButton" type="button" value="search">
+                </form>
+            </span>
+            <span id="account">
+                <a href="create account.html">Create account</a>
+                <a href="Login.html">Login</a>
+            </span>
+        </div>
+        <div id="content" class="content"></div>
+        <footer>
+            <p>developed by</p>
+            <p><strong>Mohammed Alshehry</strong></p>
+            <p><strong>Awad Aljuaid</strong></p>
+            <p>Contact us:
+            <a href="mailto: mail@example.com">send email</a></p>
+        </footer>
+    </div>
 </body>
 </html>

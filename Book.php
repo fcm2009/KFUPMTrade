@@ -13,10 +13,9 @@ class Book extends Item {
 
     public static function createItem($itemData)
     {
-        $book = new Book($itemData["id"], $itemData["title"], $itemData["seller"], $itemData["price"]);
+        $book = new Book($itemData["id"], $itemData["title"], $itemData["seller"], $itemData["price"], $itemData["description"],
+            $itemData["image"], $itemData["date"]);
         $book->setIsbn($itemData["isbn"]);
-        $book->setDescription($itemData["description"]);
-        $book->setImage($itemData["image"]);
         return $book;
     }
 

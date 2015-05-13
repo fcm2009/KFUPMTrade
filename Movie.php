@@ -11,10 +11,9 @@ class Movie extends Item {
 
     public static function createItem($itemData)
     {
-        $movie = new Movie($itemData["id"], $itemData["title"], $itemData["seller"], $itemData["price"]);
+        $movie = new Movie($itemData["id"], $itemData["title"], $itemData["seller"], $itemData["price"], $itemData["description"],
+            $itemData["image"], $itemData["date"]);
         $movie->setMovieId($itemData["movieId"]);
-        $movie->setDescription($itemData["description"]);
-        $movie->setImage($itemData["image"]);
         return $movie;
     }
 

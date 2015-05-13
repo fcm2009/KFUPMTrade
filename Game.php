@@ -11,10 +11,9 @@ class Game extends Item{
 
     public static function createItem($itemData)
     {
-        $game = new Game($itemData["id"], $itemData["title"], $itemData["seller"], $itemData["price"]);
+        $game = new Game($itemData["id"], $itemData["title"], $itemData["seller"], $itemData["price"], $itemData["description"],
+            $itemData["image"], $itemData["date"]);
         $game->setGameId($itemData["gameId"]);
-        $game->setDescription($itemData["description"]);
-        $game->setImage($itemData["image"]);
         return $game;
     }
 

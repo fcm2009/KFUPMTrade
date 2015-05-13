@@ -10,9 +10,8 @@ class Home extends Item {
 
     public static function createItem($itemData)
     {
-        $home = new Home($itemData["id"], $itemData["title"], $itemData["seller"], $itemData["price"]);
-        $home->setDescription($itemData["description"]);
-        $home->setImage($itemData["image"]);
+        $home = new Home($itemData["id"], $itemData["title"], $itemData["seller"], $itemData["price"], $itemData["description"],
+            $itemData["image"], $itemData["date"]);
         return $home;
     }
 }

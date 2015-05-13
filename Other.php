@@ -10,9 +10,8 @@ class Other extends Item {
 
     public static function createItem($itemData)
     {
-        $other = new Other($itemData["id"], $itemData["title"], $itemData["seller"], $itemData["price"]);
-        $other->setDescription($itemData["description"]);
-        $other->setImage($itemData["image"]);
+        $other = new Other($itemData["id"], $itemData["title"], $itemData["seller"], $itemData["price"], $itemData["description"],
+            $itemData["image"], $itemData["date"]);
         return $other;
     }
 }

@@ -8,9 +8,9 @@
 
 include_once "ItemFactory.php";
 
-echo $_POST["data"];
 $keyword = $_POST["keyword"];
 $category = $_POST["category"];
+$id = $_POST["id"];
 $start = $_POST["start"];
 $host = "localhost";
 $port = "3306";
@@ -25,21 +25,29 @@ if($category == "All") {
             FROM Item
             WHERE title LIKE :keyword
             ORDER BY Item.date ASC
-            LIMIT :start, :limit";
+            LIMIT $start, $limit";
 }
+
+elseif($id != null) {
+    $sql = "SELECT Item.id, Item.title, Item.seller, Item.price, Item.type, Item.description, Item.image,
+            Item.date, Item.isbn, Item.gameId, Item.movieId, Item.tvId
+            FROM Item
+            WHERE Item.id = $id";
+}
+
 else {
     $sql = "SELECT Item.id, Item.title, Item.seller, Item.price, Item.type, Item.description, Item.image,
             Item.date, Item.isbn, Item.gameId, Item.movieId, Item.tvId
             FROM Item
             WHERE Item.type = '$category' AND Item.title LIKE :keyword
             ORDER BY Item.date ASC
-            LIMIT :start, :limit";
+            LIMIT $start, $limit";
 }
 
 try {
     $db = new PDO("mysql:host=$host;port=$port;dbname=$dbname", $username, $password);
     $query = $db->prepare($sql);
-    $query->execute(array(":keyword" => "%$keyword%", ":start" => $start,":limit" => $limit));
+    $query->execute(array("keyword" => "%$keyword%"));
     $result = $query->fetchall(PDO::FETCH_ASSOC);
 } catch (PDOException $e) {
     die("Error:\n" . $e->getMessage());
@@ -52,5 +60,5 @@ if(count($result) != 0) {
     echo json_encode($objects);
 }
 else {
-    echo json_encode(null);;
+    echo json_encode("null");;
 }

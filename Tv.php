@@ -11,10 +11,9 @@ class Tv extends Item {
 
     public static function createItem($itemData)
     {
-        $tv = new Tv($itemData["id"], $itemData["title"], $itemData["seller"], $itemData["price"]);
+        $tv = new Tv($itemData["id"], $itemData["title"], $itemData["seller"], $itemData["price"], $itemData["description"],
+            $itemData["image"], $itemData["date"]);;
         $tv->setTvId($itemData["tvId"]);
-        $tv->setDescription($itemData["description"]);
-        $tv->setImage($itemData["image"]);
         return $tv;
     }
 
