@@ -1,0 +1,26 @@
+CREATE TABLE Item
+(
+    id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    title LONGTEXT NOT NULL,
+    seller VARCHAR(20) NOT NULL,
+    price DECIMAL(10,2) NOT NULL,
+    type VARCHAR(20) NOT NULL,
+    description LONGTEXT,
+    image LONGTEXT,
+    date TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
+    isbn CHAR(13),
+    gameId LONGTEXT,
+    movieId LONGTEXT,
+    tvId LONGTEXT
+);
+CREATE TABLE User
+(
+    username VARCHAR(20) PRIMARY KEY NOT NULL,
+    email VARCHAR(254) NOT NULL,
+    password VARCHAR(16) NOT NULL,
+    phone VARCHAR(10) NOT NULL
+);
+ALTER TABLE Item ADD FOREIGN KEY (seller) REFERENCES User (username);
+CREATE UNIQUE INDEX unique_email ON User (email);
+CREATE UNIQUE INDEX unique_phone ON User (phone);
+K
