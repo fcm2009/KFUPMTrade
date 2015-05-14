@@ -12,16 +12,23 @@ $dbname = "KFUPMTrade";
 $username = "root";
 $password = "root";
 
-$object = new Electronic("title", "awad", 5000);
-$keys = array_keys($object->toArray());
-$values = $object->toArray();
-array_walk($keys, function(&$key) {$key = ":$key";});
-$sql = "INSERT INTO Item VALUES(DEFAULT, ". implode($keys, " ,") .")";
+$title = $_POST["title"];
+$seller = $_POST["seller"];
+$price = $_POST["price"];
+$type = $_POST["category"];
+$description = $_POST["description"];
+$image = $_POST["image"];
+
+$sql = "INSERT INTO Item(id, title, seller, price, type, description, image, date)
+        VALUES(DEFAULT, :title, :seller, :price, :type, :description, :image, DEFAULT)";
 
 try {
     $db = new PDO("mysql:host=$host;port=$port;dbname=$dbname", $username, $password);
     $query = $db->prepare($sql);
-    echo $query->execute($values);
+    if($query->execute(array(":title" => $title, ":seller" => $seller, ":price" => $price, ":type" => $type,
+    ":description" => $description, ":image" => $image)));
+        header('Location: index.html');
 } catch (PDOException $e) {
     die("Error:\n" . $e->getMessage());
 }
+

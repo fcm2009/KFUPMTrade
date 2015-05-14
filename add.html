@@ -4,7 +4,6 @@
     <meta charset="utf-8">
     <title>Homepage</title>
     <link rel="stylesheet" type="text/css" href="style.css">
-    <script src="KFUPMTrade.js"></script>
 </head>
 
 <body>
@@ -47,19 +46,19 @@
             </span>
     </div>
     <div  class="content">
-        <form id="addInfo" method="post">
+        <form id="addInfo" method="post" action="add.php">
             <label>Title: </label>
-            <input type="text"><br>
+            <input type="text" NAME="title" required><br>
             <label>Seller: </label>
-            <input type="text"><br>
+            <input type="text" name="seller" required><br>
             <label>Price: </label>
-            <input type="text"><br>
+            <input type="text" name="price" required><br>
             <label>Description: </label>
-            <input type="text"><br>
+            <input type="text" name="description" required><br>
             <label>IMG URL: </label>
-            <input type="text"><br>
+            <input type="text" name="text" required><br>
             <label>Category: </label>
-            <select>
+            <select name="category">
                 <option>Book</option>
                 <option>Electronic</option>
                 <option>Game</option>
@@ -68,7 +67,8 @@
                 <option>TV</option>
                 <option>Other</option>
             </select><br>
-            <input type="button" id="button" value="ADD">
+            <input type="submit" id="submit" value="submit">
+            <input type="reset" id="reset" value="reset">
         </form>
     </div>
     <footer>

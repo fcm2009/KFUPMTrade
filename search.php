@@ -17,7 +17,7 @@ $port = "3306";
 $dbname = "KFUPMTrade";
 $username = "root";
 $password = "root";
-$limit = 10;
+$limit = 1000;
 
 if($category == "All") {
     $sql = "SELECT Item.id, Item.title, Item.seller, Item.price, Item.type, Item.description, Item.image,

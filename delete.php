@@ -13,13 +13,15 @@ $username = "root";
 $password = "root";
 
 $id = $_POST["id"];
+
 $sql = "DELETE FROM Item
         WHERE Item.id = :id";
 
 try {
     $db = new PDO("mysql:host=$host;port=$port;dbname=$dbname", $username, $password);
     $query = $db->prepare($sql);
-    echo $query->execute(array(":id" => $id));
+    if($query->execute(array(":id" => $id)))
+        echo $id + 56;
 } catch (PDOException $e) {
     die("Error:\n" . $e->getMessage());
 }
