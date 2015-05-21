@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>PHP</ID>
+  <OriginalElement>\Tv</OriginalElement>
+  <nodes>
+    <node x="357.5" y="557.5">\ItemFactory</node>
+    <node x="1053.0" y="1125.0">\Tv</node>
+    <node x="647.5" y="131.0">\Item</node>
+    <node x="1148.125" y="0.0">\JsonSerializable</node>
+    <node x="1465.0" y="1199.5">\Other</node>
+    <node x="1262.0" y="1125.0">\Book</node>
+    <node x="1216.5" y="316.0">\User</node>
+    <node x="564.0" y="1125.0">\Movie</node>
+    <node x="509.62499999999994" y="0.0">\Factory</node>
+    <node x="274.0" y="1199.5">\Home</node>
+    <node x="811.0" y="1125.0">\Game</node>
+    <node x="-8.0" y="1199.5">\Electronic</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="\User" target="\JsonSerializable">
+      <point x="0.0" y="-282.0" />
+      <point x="1429.0" y="106.0" />
+      <point x="1292.125" y="106.0" />
+      <point x="48.0" y="40.5" />
+    </edge>
+    <edge source="\Item" target="\JsonSerializable">
+      <point x="137.25" y="-467.0" />
+      <point x="1059.25" y="106.0" />
+      <point x="1196.125" y="106.0" />
+      <point x="-48.0" y="40.5" />
+    </edge>
+    <edge source="\Other" target="\Item">
+      <point x="0.0" y="-40.5" />
+      <point x="1604.0" y="1085.0" />
+      <point x="1157.2857142857142" y="1085.0" />
+      <point x="235.28571428571433" y="467.0" />
+    </edge>
+    <edge source="\Home" target="\Item">
+      <point x="0.0" y="-40.5" />
+      <point x="413.0" y="1095.0" />
+      <point x="765.1428571428571" y="1095.0" />
+      <point x="-156.85714285714283" y="467.0" />
+    </edge>
+    <edge source="\Game" target="\Item">
+      <point x="0.0" y="-115.0" />
+      <point x="0.0" y="467.0" />
+    </edge>
+    <edge source="\Electronic" target="\Item">
+      <point x="0.0" y="-40.5" />
+      <point x="131.0" y="1085.0" />
+      <point x="686.7142857142857" y="1085.0" />
+      <point x="-235.28571428571428" y="467.0" />
+    </edge>
+    <edge source="\Book" target="\Item">
+      <point x="0.0" y="-115.0" />
+      <point x="1357.5" y="1095.0" />
+      <point x="1078.857142857143" y="1095.0" />
+      <point x="156.8571428571429" y="467.0" />
+    </edge>
+    <edge source="\Tv" target="\Item">
+      <point x="0.0" y="-115.0" />
+      <point x="1147.5" y="1105.0" />
+      <point x="1000.4285714285713" y="1105.0" />
+      <point x="78.42857142857144" y="467.0" />
+    </edge>
+    <edge source="\Item" target="\Factory">
+      <point x="-137.25" y="-467.0" />
+      <point x="784.75" y="106.0" />
+      <point x="706.125" y="106.0" />
+      <point x="65.5" y="40.5" />
+    </edge>
+    <edge source="\ItemFactory" target="\Factory">
+      <point x="0.0" y="-40.5" />
+      <point x="496.5" y="106.0" />
+      <point x="575.125" y="106.0" />
+      <point x="-65.5" y="40.5" />
+    </edge>
+    <edge source="\Movie" target="\Item">
+      <point x="0.0" y="-115.0" />
+      <point x="677.5" y="1105.0" />
+      <point x="843.5714285714284" y="1105.0" />
+      <point x="-78.42857142857144" y="467.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.7000000000000001" x="981.4285714285713" y="979.4285714285713" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Constants</Category>
+    <Category>Constructors</Category>
+    <Category>Methods</Category>
+  </Categories>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
